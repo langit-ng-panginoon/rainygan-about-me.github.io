@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  background: url('resources/bg/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.nav
+{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+/*#region Nav Logo*/
+
+.nav div
+{
+  display: flex;
+}
+
+.nav div .logo:nth-child(1)
+{
+  margin: 0px 0px 0px 25px;
+  transform: translateY(-5px);
+  font-size: 2rem;
+  font-weight: 800;
+  user-select: none;
+  transition: .2s ease-in-out;
+}
+.nav div .logo:nth-child(2)
+{
+  transform: translateY(5px);
+  font-size: 2rem;
+  font-weight: 800;
+  user-select: none;
+  transition: .2s ease-in-out;
+}
+
+.nav div:hover .logo:nth-child(1)
+{
+  transform: translateY(0px);
+}
+
+.nav div:hover .logo:nth-child(2)
+{
+  transform: translateY(0px);
+}
+
+/*#endregion Nav Logo*/
+
+/*#region Nav Items*/
+
+.nav .nav-items
+{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.nav .nav-items .item
+{
+  margin-right: 25px;
+}
+
+.nav .nav-items .item a
+{
+  position: relative;
+  font-size: 1.6rem;  
+  text-decoration: none;
+}
+
+.nav .nav-items .item a::after
+{
+  position: absolute;
+  display: block;
+  border-radius: 5px;
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: white;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+.nav .nav-items .item a:hover::after
+{
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.nav .nav-items .item.active a::after
+{
+  transform-origin: left;
+  transform: scaleX(1);
+}
+.nav .nav-items .item a::before
+{
+  position: absolute;
+  display: block;
+  border-radius: 5px;
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: white;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+.nav .nav-items .item a:hover::before
+{
+  transform-origin: right;
+  transform: scaleX(1);
+}
+.nav .nav-items .item.active a::before
+{
+  transform-origin: right;
+  transform: scaleX(1);
+}
+
+/*#endregion Nav Items*/
+
+.content
+{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - 60px);
+}
+
+/*#region Content Left*/
+
+.content .left
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+
+.content .left .who
+{
+  font-size: 4rem;
+}
+
+/*#endregion Content Left*/
+
+/*#region Content Right*/
+
+.content .right
+{
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content .right .menu 
+{
+  position: absolute;
+  transform-origin: right;
+  transform: scale(0);
+  opacity: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  transition: 1s ease-in-out;
+}
+
+.content .right .menu.active
+{
+  transform-origin: left;
+  transform: scale(1);
+  opacity: 1;
+  left: 0;
+}
+
+/*#region Game */
+
+.content .right .fav-games .game-list
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  list-style: none;
+}
+
+.content .right .fav-games .game-list .game
+{
+  margin: 5px;
+  border-radius: 10px;
+  width: 400px;
+  height: 115px;
+  overflow: hidden;
+}
+
+.content .right .fav-games .game-list .game .game-container
+{
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.content .right .fav-games .game-list .game .game-container .link
+{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.content .right .fav-games .game-list .game .game-container .link .game-link
+{
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: rgb(255, 255, 255);
+}
+
+.content .right .fav-games .game-list .game .game-container .image
+{
+  height: 100%;
+  width: 50%;
+  background: var(--image) no-repeat;
+  background-size: cover;
+}
+
+/*#endregion Game */
+
+/*#region Hobbies */
+
+.content .right .hobbies .hobbies
+{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  grid-template-rows: repeat(2, 200px);
+  height: 400px;
+  width: 500px;
+}
+
+.content .right .hobbies .hobbies .hobby
+{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.content .right .hobbies .hobbies .hobby ion-icon
+{
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  height: 35px;
+}
+
+.content .right .hobbies .hobbies .hobby div
+{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: 100%;
+  transform: translateY(-140px);
+  height: 140px;
+}
+
+.content .right .hobbies .hobbies .hobby div p
+{
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+/*#endregion Hobbies */
+
+.content .right div .header
+{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+}
+
+/*#endregion Content Right*/
