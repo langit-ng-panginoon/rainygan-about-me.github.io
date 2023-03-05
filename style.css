@@ -163,7 +163,35 @@ body {
 .content .left .who
 {
   font-size: 4rem;
+  z-index: 100;
 }
+
+.content .left .info
+{
+  transition: .1s ease-in-out;
+}
+
+.content .left .gender
+{
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 50rem;
+  color: var(--color);
+  transition: top .2s;
+}
+
+.content .left .info:hover
+{
+  color: var(--color);
+}
+
+.content .left .info:hover + .gender
+{
+  top: 50%;
+}
+
 
 /*#endregion Content Left*/
 
@@ -265,21 +293,42 @@ body {
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  display: grid;
-  grid-template-columns: repeat(2, 250px);
-  grid-template-rows: repeat(2, 200px);
   height: 400px;
   width: 500px;
 }
 
 .content .right .hobbies .hobbies .hobby
 {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 5px;
+  width: 240px;
+  height: 200px;
   background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: transform .2s;
+}
+
+.content .right .hobbies .hobbies .hobby:nth-child(2)
+{
+  left: 250px;
+}
+
+.content .right .hobbies .hobbies .hobby:nth-child(3)
+{
+  top: 210px;
+}
+
+.content .right .hobbies .hobbies .hobby:nth-child(4)
+{
+  left: 250px;
+  top: 210px;
+}
+
+.content .right .hobbies .hobbies .hobby:hover
+{
+  transform: scale(1.05);
 }
 
 .content .right .hobbies .hobbies .hobby ion-icon
